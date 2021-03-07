@@ -9,13 +9,12 @@
 	//router
 	import { Router, Link,Route } from "svelte-routing";
 	export let url = "";
+	//compoents
+	import Navbar from './components/Navbar/Navbar.svelte'
 </script>
 <Router url="{url}">
-	<nav class='navbar'>
-		<Link to="/">Home</Link>
-		<Link to="/about">About</Link>
-		<Link to="/products">Products</Link>
-	  </nav>
+	<Navbar/>
+	
 
 <Route path='/' component="{Home}"/>
 <Route path="/login" component="{Login}" />

@@ -8,6 +8,9 @@
   import {link} from 'svelte-routing'
 $:product=$products.find(item=>item.id=== parseInt(id))
 </script>
+<svelte:head>
+  <title>{!product?'single product': product.title}</title>
+</svelte:head>
 {#if !product}
 <Loading/>
 {:else}
