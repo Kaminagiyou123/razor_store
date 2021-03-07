@@ -11,10 +11,14 @@
 	export let url = "";
 	//compoents
 	import Navbar from './components/Navbar/Navbar.svelte'
+	import Sidebar from './components/Navbar/Sidebar.svelte'
+	import globalStore from './stores/globalStore'
 </script>
 <Router url="{url}">
 	<Navbar/>
-	
+	{#if $globalStore.sidebar}
+	<Sidebar/>
+	{/if}
 
 <Route path='/' component="{Home}"/>
 <Route path="/login" component="{Login}" />
