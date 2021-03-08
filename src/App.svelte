@@ -9,15 +9,20 @@
 	//router
 	import { Router, Link,Route } from "svelte-routing";
 	export let url = "";
-	//compoents
+	//components
 	import Navbar from './components/Navbar/Navbar.svelte'
 	import Sidebar from './components/Navbar/Sidebar.svelte'
+	import Cart from './components/Cart/Cart.svelte'
 	import globalStore from './stores/globalStore'
 </script>
 <Router url="{url}">
 	<Navbar/>
 	{#if $globalStore.sidebar}
 	<Sidebar/>
+	{/if}
+
+	{#if $globalStore.cart}
+	<Cart/>
 	{/if}
 
 <Route path='/' component="{Home}"/>

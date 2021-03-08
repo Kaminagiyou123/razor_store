@@ -2,6 +2,7 @@
 export let product;
 const {title,image,price,id}=product;
 import {link} from 'svelte-routing'
+
 </script>
 
 

@@ -11,8 +11,8 @@ const store={
         globalStore.update(storeValues=>{
             return {...storeValues,[item]:value}
         })
-
     }
+
 }
 
 export default store;
