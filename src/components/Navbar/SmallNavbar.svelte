@@ -16,6 +16,7 @@
         <a href='/' use:link class='nav-logo'>
         <img src='/assets/images/logo.svg' class='logo' alt='razor logo'></a>
      <Cartbutton/> 
+ 
     </div>
   
 </nav>

@@ -2,6 +2,7 @@
  import {link} from 'svelte-routing'
 import Cartbutton from '../Cart/Cartbutton.svelte'
 import links from '../../constants/links'
+import LoginLink from '../../components/LoginLink.svelte'
 </script>
 <nav class='navbar'>
     <div class='nav-container'>
@@ -12,13 +13,16 @@ import links from '../../constants/links'
                 <li>
                     <a href={navLink.url} use:link>{navLink.text}</a> 
                 </li>
-                {/each}</ul>
+                {/each}
+            </ul>
             <!-- nav logo -->
             <a href='/' use:link class='nav-logo big-logo'>
                 <img src='/assets/images/logo.svg' class='logo' alt='razor logo'></a>
                 <!-- cart toggle -->
                 <div class= 'nav-aside'>
+                    <LoginLink/>
                     <Cartbutton/>
+
                 </div>
         </div>
     </div>

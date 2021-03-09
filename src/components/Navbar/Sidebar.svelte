@@ -2,6 +2,7 @@
 import {link} from 'svelte-routing'
 import links from '../../constants/links'
 import globalStore from '../../stores/globalStore'
+import LoginLink from '../../components/LoginLink.svelte'
 import {fly,fade} from 'svelte/transition'
     let closeSidebar=globalStore.toggleItem;
 </script>
@@ -25,6 +26,9 @@ import {fly,fade} from 'svelte/transition'
                 }}>{sideLink.text}</a> 
             </li>
             {/each} 
+            <li>
+                <LoginLink/>
+            </li>
         </ul>
     </div>
 </div>
