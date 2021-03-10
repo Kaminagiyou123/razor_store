@@ -1,6 +1,6 @@
 <script>  
     export let title=''
-    import products from '../../stores/defaultProducts'
+    import products from '../../stores/product'
     import Product from './Product.svelte'
     import Loading from '../Loading.svelte'
     $:featured=$products.filter((item)=>item.featured===true)

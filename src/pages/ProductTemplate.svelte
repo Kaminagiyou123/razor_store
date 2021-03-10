@@ -4,7 +4,7 @@
   import globalStore from '../stores/globalStore'
 let openCart=globalStore.toggleItem;
 
-  import products from '../stores/defaultProducts'
+  import products from '../stores/product'
   import Loading from '../components/Loading.svelte'
   import {link} from 'svelte-routing'
   import {addToCart} from '../stores/cart'
