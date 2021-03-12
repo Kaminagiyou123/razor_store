@@ -2,11 +2,12 @@
     import loginUser from '../strapi/loginUser'
     import registerUser from '../strapi/registerUser'
     import {navigate} from 'svelte-routing'
+    import globalStore from '../stores/globalStore'
     let email=''
     let password=''
     let username='default username'
     let isMember=true
-    $: isEmpty=!email ||!password|| !username
+    $: isEmpty=!email ||!password|| !username||$globalStore.alert;
     const toggleMember=()=>{
        isMember=!isMember
        if (!isMember){
@@ -16,6 +17,9 @@
        }
     }
     const handleSubmit=async()=>{
+        globalStore.toggleItem(
+            'alert',true,"loading data...please wait"
+        )
     let user;
     if (isMember){
         user=await loginUser(email,password);  
@@ -24,10 +28,10 @@
     }
         if (user){
             navigate('/products')
-            //add alert
+            globalStore.toggleItem('alert',true,'welcome to shopping madness my friend!')
             return;
         } else {
-            //add alert
+            globalStore.toggleItem('alert',true,'there was an error! please try again',true)
         }
 
     }
@@ -64,7 +68,7 @@
 <p class='form-empty'>please fill out all form fields</p>
 {/if}
 <button type='submit' class='btn btn-block btn-primary' 
-disable={isEmpty} class:disabled={isEmpty}>submit</button>
+disabled={isEmpty} class:disabled={isEmpty}>submit</button>
 {#if isMember} 
 <p class='register-link'>need to register?
 <button type='button' on:click={toggleMember}>click here</button></p>
