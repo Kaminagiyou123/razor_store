@@ -1,7 +1,7 @@
 <script>
     import loginUser from '../strapi/loginUser'
     import registerUser from '../strapi/registerUser'
-
+    import {navigate} from 'svelte-routing'
     let email=''
     let password=''
     let username='default username'
@@ -23,9 +23,11 @@
        user=await registerUser(email,password,username);   
     }
         if (user){
-
+            navigate('/products')
+            //add alert
+            return;
         } else {
-
+            //add alert
         }
 
     }
